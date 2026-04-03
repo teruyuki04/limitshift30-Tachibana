@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DSNTL3N5XD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DSNTL3N5XD');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>立花エレテック｜LIMITSHIFT 30 経営構造診断</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2640;
+    --navy-light: #243252;
+    --navy-deep: #111b2e;
+    --gold: #a07820;
+    --gold-light: #c49a2a;
+    --gold-pale: #e8d5a0;
+    --off-white: #f9f7f2;
+    --off-white-2: #f0ece3;
+    --text-dark: #1a2640;
+    --text-mid: #4a4744;
+    --text-light: #6b6560;
+    --border: rgba(160,120,32,0.2);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--off-white);
+    color: var(--text-dark);
+    font-family: 'Noto Serif JP', serif;
+    font-size: 16px;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  /* ─── PROGRESS BAR ─── */
+  #progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    width: 0%;
+    z-index: 9999;
+    transition: width 0.1s linear;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 18px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.4s, backdrop-filter 0.4s;
+  }
+  nav.scrolled {
+    background: rgba(26,38,64,0.92);
+    backdrop-filter: blur(12px);
+  }
+  .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .nav-logo {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--off-white);
+    font-weight: 400;
+    opacity: 0.9;
+  }
+  .nav-divider {
+    width: 1px;
+    height: 20px;
+    background: rgba(249,247,242,0.25);
+  }
+  .nav-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 12px;
+    color: rgba(249,247,242,0.75);
+    letter-spacing: 0.05em;
+  }
+  .nav-cta {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--gold-pale);
+    border: 1px solid rgba(160,120,32,0.5);
+    padding: 9px 20px;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .nav-cta:hover {
+    background: var(--gold);
+    color: var(--off-white);
+    border-color: var(--gold);
+  }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+  }
+  .hero-left {
+    background: var(--off-white);
+    padding: 100px 64px 80px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+  .hero-left::after {
+    content: '';
+    position: absolute;
+    right: 0; top: 15%; bottom: 15%;
+    width: 1px;
+    background: var(--border);
+  }
+  .kicker {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .hero-company {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 13px;
+    color: var(--text-mid);
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  .hero-h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(22px, 3vw, 34px);
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.5;
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+  }
+  .hero-h1 em {
+    font-style: normal;
+    color: var(--gold);
+  }
+  .hero-subtext {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 2;
+    margin-bottom: 36px;
+    padding-left: 16px;
+    border-left: 2px solid var(--gold-pale);
+  }
+  .hero-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--text-light);
+    line-height: 2;
+  }
+
+  .hero-right {
+    background: var(--navy);
+    padding: 100px 64px 80px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .toc-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 32px;
+    text-transform: uppercase;
+  }
+  .toc-list {
+    list-style: none;
+    margin-bottom: 56px;
+  }
+  .toc-list li {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(249,247,242,0.08);
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+  }
+  .toc-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-style: italic;
+    color: rgba(160,120,32,0.4);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 32px;
+  }
+  .toc-text {
+    font-size: 13px;
+    color: rgba(249,247,242,0.75);
+    letter-spacing: 0.04em;
+  }
+  .hero-btn {
+    display: block;
+    background: var(--gold);
+    color: var(--off-white);
+    text-decoration: none;
+    padding: 18px 32px;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-align: center;
+    transition: background 0.3s;
+    margin-bottom: 16px;
+  }
+  .hero-btn:hover { background: var(--gold-light); }
+  .hero-btn-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: rgba(249,247,242,0.45);
+    text-align: center;
+    letter-spacing: 0.08em;
+  }
+
+  /* ─── SECTIONS COMMON ─── */
+  section { padding: 100px 80px; }
+
+  .section-kicker {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(20px, 2.5vw, 30px);
+    font-weight: 600;
+    color: inherit;
+    line-height: 1.5;
+    margin-bottom: 48px;
+  }
+
+  /* fade-in */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── S01 ─── */
+  #s01 { background: var(--off-white); }
+
+  .s01-lead {
+    max-width: 680px;
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 2;
+    margin-bottom: 56px;
+  }
+  .data-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+  .data-card {
+    background: white;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .data-card.featured {
+    background: var(--navy);
+    grid-column: 1 / -1;
+  }
+  .data-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+  .data-card.featured::before {
+    background: linear-gradient(90deg, var(--gold-light), transparent);
+  }
+  .data-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--text-light);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .data-card.featured .data-label {
+    color: rgba(249,247,242,0.5);
+  }
+  .data-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(44px, 6vw, 72px);
+    font-weight: 300;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .data-card.featured .data-value {
+    color: var(--gold-light);
+  }
+  .data-desc {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.8;
+  }
+  .data-card.featured .data-desc {
+    color: rgba(249,247,242,0.7);
+  }
+  .data-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  .urgency-badge {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    background: rgba(160,120,32,0.15);
+    color: var(--gold-light);
+    border: 1px solid rgba(160,120,32,0.3);
+    padding: 4px 10px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  /* ─── S02 ─── */
+  #s02 { background: var(--navy); color: var(--off-white); }
+  #s02 .section-title { color: var(--off-white); }
+
+  .s02-intro {
+    max-width: 700px;
+    font-size: 15px;
+    color: rgba(249,247,242,0.75);
+    line-height: 2;
+    margin-bottom: 64px;
+  }
+  .layer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-bottom: 64px;
+  }
+  .layer-card {
+    background: rgba(255,255,255,0.04);
+    border-top: 1px solid rgba(160,120,32,0.25);
+    padding: 36px;
+    transition: background 0.3s;
+  }
+  .layer-card:hover { background: rgba(255,255,255,0.07); }
+  .layer-icon {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .layer-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--off-white);
+    margin-bottom: 16px;
+  }
+  .layer-text {
+    font-size: 13px;
+    color: rgba(249,247,242,0.65);
+    line-height: 1.9;
+  }
+
+  .s02-closing {
+    border-left: 2px solid var(--gold);
+    padding: 32px 40px;
+    background: rgba(255,255,255,0.03);
+  }
+  .s02-closing p {
+    font-size: 15px;
+    color: rgba(249,247,242,0.8);
+    line-height: 2;
+    font-style: italic;
+  }
+  .s02-closing em {
+    font-style: normal;
+    color: var(--gold-pale);
+  }
+
+  /* ─── S03 ─── */
+  #s03 { background: var(--off-white-2); }
+
+  .s03-lead {
+    max-width: 700px;
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 2;
+    margin-bottom: 72px;
+  }
+
+  .question-flow {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .q-step {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 32px;
+    margin-bottom: 0;
+    position: relative;
+  }
+  .q-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 40px;
+    top: 80px;
+    bottom: -32px;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+  .q-num-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 12px;
+  }
+  .q-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-style: italic;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .q-content {
+    background: white;
+    padding: 36px;
+    margin-bottom: 32px;
+    border-top: 2px solid transparent;
+    transition: border-color 0.3s;
+  }
+  .q-content:hover { border-color: var(--gold); }
+  .q-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .q-main {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .q-arrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    margin-bottom: 12px;
+  }
+  .q-desc {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.9;
+  }
+
+  /* 3 scales interactive */
+  .scales-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .scale-card {
+    background: var(--off-white-2);
+    border: 1px solid var(--border);
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    user-select: none;
+  }
+  .scale-card:hover, .scale-card.open {
+    background: var(--navy);
+    border-color: var(--navy);
+  }
+  .scale-card:hover .scale-num,
+  .scale-card.open .scale-num { color: var(--gold); }
+  .scale-card:hover .scale-name,
+  .scale-card.open .scale-name { color: var(--off-white); }
+  .scale-card:hover .scale-detail,
+  .scale-card.open .scale-detail {
+    color: rgba(249,247,242,0.65);
+    max-height: 200px;
+    margin-top: 12px;
+  }
+  .scale-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .scale-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    transition: color 0.3s;
+  }
+  .scale-detail {
+    font-size: 12px;
+    color: var(--text-mid);
+    line-height: 1.8;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, margin-top 0.3s, color 0.3s;
+  }
+  .q3-closing {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.9;
+    border-left: 2px solid var(--gold-pale);
+    padding-left: 16px;
+    font-style: italic;
+  }
+
+  /* ─── S04 ─── */
+  #s04 { background: var(--navy); color: var(--off-white); }
+  #s04 .section-title { color: var(--off-white); }
+
+  .s04-preface {
+    max-width: 600px;
+    font-size: 14px;
+    color: rgba(249,247,242,0.65);
+    line-height: 2;
+    margin-bottom: 64px;
+  }
+  .central-question {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(160,120,32,0.3);
+    padding: 56px 64px;
+    margin-bottom: 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .central-question::before {
+    content: '"';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 200px;
+    font-style: italic;
+    color: rgba(160,120,32,0.06);
+    position: absolute;
+    top: -40px; left: 24px;
+    line-height: 1;
+  }
+  .central-question p {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(15px, 2vw, 20px);
+    font-weight: 500;
+    line-height: 2;
+    color: var(--off-white);
+    position: relative;
+    z-index: 1;
+  }
+  .central-question em {
+    font-style: normal;
+    color: var(--gold-light);
+  }
+  .cq-dash {
+    color: rgba(249,247,242,0.3);
+  }
+
+  .evidence-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-bottom: 56px;
+  }
+  .evidence-card {
+    background: rgba(255,255,255,0.03);
+    border-top: 1px solid rgba(160,120,32,0.2);
+    padding: 28px 32px;
+  }
+  .ev-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .ev-text {
+    font-size: 13px;
+    color: rgba(249,247,242,0.7);
+    line-height: 1.9;
+  }
+  .ev-text strong {
+    color: var(--gold-pale);
+    font-weight: 500;
+  }
+  .s04-invite {
+    font-size: 14px;
+    color: rgba(249,247,242,0.55);
+    font-style: italic;
+    line-height: 2;
+    max-width: 600px;
+  }
+
+  /* ─── S05 ─── */
+  #s05 { background: var(--off-white); }
+
+  .mission-block {
+    max-width: 700px;
+    margin-bottom: 72px;
+    padding: 40px;
+    background: var(--navy);
+    position: relative;
+  }
+  .mission-block::after {
+    content: '';
+    position: absolute;
+    bottom: -8px; right: -8px;
+    width: 100%; height: 100%;
+    border: 1px solid var(--gold);
+    z-index: -1;
+  }
+  .mission-text {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 15px;
+    color: rgba(249,247,242,0.85);
+    line-height: 2;
+  }
+  .mission-text em {
+    font-style: normal;
+    color: var(--gold-pale);
+  }
+
+  .os-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-bottom: 72px;
+    border: 1px solid var(--border);
+  }
+  .os-col {
+    padding: 40px;
+  }
+  .os-col.kaizen { background: var(--off-white-2); }
+  .os-col.innovation { background: var(--navy); }
+  .os-col-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid;
+  }
+  .kaizen .os-col-label { color: var(--text-light); border-color: var(--border); }
+  .innovation .os-col-label { color: var(--gold); border-color: rgba(160,120,32,0.25); }
+
+  .os-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .os-item {
+    padding: 20px 40px;
+    border-bottom: 1px solid;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .os-item.k { border-color: rgba(74,71,68,0.1); color: var(--text-mid); }
+  .os-item.i { border-color: rgba(249,247,242,0.07); color: rgba(249,247,242,0.7); }
+  .os-item.i strong { color: var(--gold-pale); font-weight: 500; }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+  }
+  .feature-card {
+    background: white;
+    padding: 36px;
+    border-top: 2px solid var(--gold);
+  }
+  .feat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    font-style: italic;
+    color: var(--gold);
+    opacity: 0.5;
+    margin-bottom: 12px;
+    line-height: 1;
+  }
+  .feat-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+  .feat-text {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.9;
+  }
+
+  /* ─── S06 CTA ─── */
+  #s06 { background: var(--off-white-2); padding: 100px 80px; }
+  .cta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .cta-left {}
+  .cta-heading {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(22px, 2.8vw, 32px);
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.5;
+    margin-bottom: 28px;
+  }
+  .cta-lead {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 2;
+    margin-bottom: 28px;
+  }
+  .cta-value {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 2;
+    padding: 24px;
+    background: white;
+    border-left: 2px solid var(--gold);
+  }
+  .cta-right {
+    background: var(--navy);
+    padding: 48px;
+  }
+  .form-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .form-group {
+    margin-bottom: 20px;
+  }
+  label {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: rgba(249,247,242,0.5);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  input, textarea, select {
+    width: 100%;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(249,247,242,0.12);
+    color: var(--off-white);
+    padding: 12px 16px;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.3s;
+    -webkit-appearance: none;
+  }
+  input:focus, textarea:focus {
+    border-color: rgba(160,120,32,0.5);
+  }
+  textarea { resize: vertical; min-height: 80px; }
+  ::placeholder { color: rgba(249,247,242,0.2); }
+
+  .checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .checkbox-row input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+  .checkbox-row label {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 12px;
+    letter-spacing: 0;
+    color: rgba(249,247,242,0.55);
+    margin: 0;
+    text-transform: none;
+    cursor: pointer;
+  }
+
+  .submit-btn {
+    width: 100%;
+    background: var(--gold);
+    color: var(--off-white);
+    border: none;
+    padding: 18px;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-bottom: 16px;
+  }
+  .submit-btn:hover { background: var(--gold-light); }
+  .form-disclaimer {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: rgba(249,247,242,0.3);
+    text-align: center;
+    letter-spacing: 0.08em;
+    line-height: 1.8;
+  }
+
+  /* success overlay */
+  #success-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(26,38,64,0.95);
+    z-index: 9000;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 40px;
+  }
+  #success-overlay.show { display: flex; }
+  .success-icon {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 80px;
+    color: var(--gold);
+    font-style: italic;
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+  .success-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 22px;
+    color: var(--off-white);
+    margin-bottom: 16px;
+  }
+  .success-text {
+    font-size: 14px;
+    color: rgba(249,247,242,0.65);
+    line-height: 2;
+    max-width: 480px;
+  }
+  .success-close {
+    margin-top: 32px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    cursor: pointer;
+    letter-spacing: 0.15em;
+    border: 1px solid rgba(160,120,32,0.4);
+    padding: 10px 24px;
+    text-transform: uppercase;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--navy-deep);
+    padding: 40px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(160,120,32,0.15);
+  }
+  .footer-left {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: rgba(249,247,242,0.35);
+    letter-spacing: 0.12em;
+  }
+  .footer-right {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 12px;
+    color: rgba(249,247,242,0.3);
+    text-align: right;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    section { padding: 72px 32px; }
+    #hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 100px 32px 60px; }
+    .hero-left::after { display: none; }
+    .hero-right { padding: 60px 32px; }
+    .data-grid, .layer-grid, .evidence-grid,
+    .os-row, .features-grid, .cta-grid { grid-template-columns: 1fr; }
+    .os-compare { grid-template-columns: 1fr; }
+    .scales-grid { grid-template-columns: 1fr; }
+    .central-question { padding: 32px; }
+    footer { flex-direction: column; gap: 16px; text-align: center; }
+    .footer-right { text-align: center; }
+    .cta-right { padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Progress Bar -->
+<div id="progress-bar"></div>
+
+<!-- Success Overlay -->
+<div id="success-overlay">
+  <div class="success-icon">✓</div>
+  <div class="success-title">対話のお申し込みを受け付けました</div>
+  <div class="success-text">近日中に清水よりご連絡差し上げます。<br>お時間をいただき、ありがとうございます。</div>
+  <div class="success-close" onclick="document.getElementById('success-overlay').classList.remove('show')">CLOSE</div>
+</div>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-left">
+    <span class="nav-logo">PROUDFOOT JAPAN</span>
+    <div class="nav-divider"></div>
+    <span class="nav-title">立花エレテック　経営構造診断</span>
+  </div>
+  <a href="#s06" class="nav-cta">対話を申し込む</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left fade-in">
+    <div class="kicker">LIMITSHIFT 30 — 経営構造診断</div>
+    <div class="hero-company">立花エレテック株式会社</div>
+    <h1 class="hero-h1">
+      「データの持ち主」が<br>
+      <em>変わりつつある今、</em><br>
+      立花エレテックの100年は<br>何に変わるか。
+    </h1>
+    <p class="hero-subtext">
+      御社の中計・決算・技術資産・競合動向・業界構造変化を精査する中で、外部から一つの問いが生まれました。その問いが的外れかどうかを確かめるために、このページを書きました。答えを持ってきたのではありません。問いを持ってきました。
+    </p>
+    <div class="hero-meta">
+      立花エレテック株式会社（8159・東証プライム）<br>
+      診断基準日：2025年4月<br>
+      根拠資料：決算短信・有価証券報告書・中期経営計画・Edgecross関連公開情報
+    </div>
+  </div>
+  <div class="hero-right fade-in" style="transition-delay:0.15s">
+    <div class="toc-label">CONTENTS</div>
+    <ul class="toc-list">
+      <li>
+        <span class="toc-num">01</span>
+        <span class="toc-text">外部から見えた数値と問い</span>
+      </li>
+      <li>
+        <span class="toc-num">02</span>
+        <span class="toc-text">構造の解析</span>
+      </li>
+      <li>
+        <span class="toc-num">03</span>
+        <span class="toc-text">解くべき問いのプロセス</span>
+      </li>
+      <li>
+        <span class="toc-num">04</span>
+        <span class="toc-text">御社に投げたい問い</span>
+      </li>
+    </ul>
+    <a href="#s06" class="hero-btn">問いが的外れかどうかを、確かめたい</a>
+    <p class="hero-btn-sub">「違います」という答えも、私たちにとっては大切な対話です。</p>
+  </div>
+</section>
+
+<!-- S01: 外部から見えた数値 -->
+<section id="s01">
+  <div class="section-kicker fade-in">S01 — EXTERNAL DATA</div>
+  <h2 class="section-title fade-in">外部から見えた数値と問い</h2>
+  <p class="s01-lead fade-in">
+    公開されている数値を並べたとき、一つの問いが生まれました。個々の数字は既知かもしれない。しかし、それらが一つの構造として連なって見えたとき、見え方は変わるかもしれません。
+  </p>
+  <div class="data-grid fade-in">
+    <div class="data-card">
+      <div class="data-label">ROE</div>
+      <div class="data-value">7.2<span style="font-size:0.4em;opacity:0.6">%</span></div>
+      <div class="data-desc">自社目標「10%以上」を掲げながら未達が続く。競合マクニカHDがピーク時22%超を記録した同業界で、資本市場からは「変わっていない」という評価が定着し、PBRは1倍割れが常態化している。</div>
+    </div>
+    <div class="data-card">
+      <div class="data-label">海外売上高比率（2025年3月期）</div>
+      <div class="data-value">18<span style="font-size:0.4em;opacity:0.6">%</span></div>
+      <div class="data-desc">自社目標「20%以上」に届かないまま中計最終年度を迎えた。競合マクニカHDの約50%と比べると、その差は「少し遅れている」レベルではなく、ビジネスモデル上の構造的断絶を示している。</div>
+    </div>
+    <div class="data-card">
+      <div class="data-label">仕入先集中度（上位2社合計）</div>
+      <div class="data-value">63<span style="font-size:0.4em;opacity:0.6">%</span></div>
+      <div class="data-desc">三菱電機38.8%、ルネサス24.4%。100年で磨いた「主要代理店」という強みは、同時に「その2社の戦略変更に対して無防備」という脆弱性でもある。Edgecrossコンソーシアムの終焉（2025年）が示すように、メーカーは次のフェーズへ移行しつつある。</div>
+    </div>
+    <div class="data-card featured">
+      <div class="urgency-badge">CRITICAL WINDOW</div>
+      <div class="data-year">2026年</div>
+      <div class="data-label" style="color:rgba(249,247,242,0.45)">新中期経営計画の策定・発表</div>
+      <div class="data-value">最後の<span style="font-size:0.35em;opacity:0.7;font-style:italic;font-family:'Cormorant Garamond'">ウィンドウ</span></div>
+      <div class="data-desc">「これまでの延長線上では厳しい」と社長自身が認める現行中計の最終年度。次の5カ年計画で「グローバル展開」を唯一の勝ち筋と公言しながら、それを動かす人・組織・データが揃っていない。Edgecrossという共通基盤も消滅する。この1年が、戦略の設計を根本から変えられる最後のウィンドウである。</div>
+    </div>
+  </div>
+</section>
+
+<!-- S02: 構造の解析 -->
+<section id="s02">
+  <div class="section-kicker fade-in">S02 — STRUCTURAL ANALYSIS</div>
+  <h2 class="section-title fade-in">なぜ「データの持ち主」になれなかったのか</h2>
+  <p class="s02-intro fade-in">
+    表面の数字が示す「目標未達」の背後には、4つの層が連動した構造的な問いがある。これはコンプライアンスの話でも、努力の話でもない。なぜこの構造が繰り返されているのか——そこに、私たちが最も注目した観察がある。
+  </p>
+  <div class="layer-grid fade-in">
+    <div class="layer-card">
+      <div class="layer-icon">LAYER 01 — BUSINESS MODEL</div>
+      <div class="layer-title">ビジネスモデル</div>
+      <p class="layer-text">「技術商社」を40年以上名乗り、200名のエンジニアを擁する。しかしその技術競争優位は三菱電機・ルネサスのエコシステムの内側でのみ成立する設計になっており、「モノを売る」単発取引から「データで稼ぐ」継続収益への転換設計が未完成のまま。FAシステム事業が売上の約49%を占めるが、そのシステムソリューション収益が独立した高収益セグメントとして分離されていない。</p>
+    </div>
+    <div class="layer-card">
+      <div class="layer-icon">LAYER 02 — HUMAN CAPITAL</div>
+      <div class="layer-title">人材</div>
+      <p class="layer-text">組み込みマイコン向けオリジナルOS、FPGA開発支援、M2Mシステム統合という本物の技術が社内に存在する。しかしその知識は「人（エンジニア）」の中にあり、形式知化・データベース化が進んでいない。グローバル人材の採用手法が「現在の課題」と人事求人票に明記されており、海外展開を担える人材層の薄さを経営トップ自身が認識している。</p>
+    </div>
+    <div class="layer-card">
+      <div class="layer-icon">LAYER 03 — FINANCE</div>
+      <div class="layer-title">財務</div>
+      <p class="layer-text">自己資本比率57.4%という厚い財務体質は健全だが、逆に「資本を事業に投下できていない」ことの証左でもある。営業利益率は3〜4%台が天井で、半導体サイクルの谷では2%台に急落する体質から抜け出せていない。PBR1倍割れが示すように、資本市場は「変わっていない」という評価を下し続けている。</p>
+    </div>
+    <div class="layer-card">
+      <div class="layer-icon">LAYER 04 — CULTURE</div>
+      <div class="layer-title">組織文化</div>
+      <p class="layer-text">中計が「変革を常に次の中計に持ち越す」パターンを繰り返してきた。2024年4月発足のDX推進プロジェクトをわずか1年で廃止し機能統合するなど、変革の設計と実行の間に構造的な乖離がある。「安定成長で200年続く企業」という経営ビジョンの安定性への志向が、根本的な事業モデル転換の踏み出しを遅らせている可能性がある。</p>
+    </div>
+  </div>
+  <div class="s02-closing fade-in">
+    <p>
+      これは外部公開情報から組み立てた仮説に過ぎない。<br>
+      御社の内側から見えている景色は、<em>どう違うか</em>——<br><br>
+      そこに、私たちが最もお伺いしたいことがある。
+    </p>
+  </div>
+</section>
+
+<!-- S03: 解くべき問いのプロセス -->
+<section id="s03">
+  <div class="section-kicker fade-in">S03 — THE QUESTION PROCESS</div>
+  <h2 class="section-title fade-in">解くべき問いのプロセス</h2>
+  <p class="s03-lead fade-in">
+    多くのJTCが、「本当に解くべき問い」を定義しないまま、既存路線の延長に戦略を描く。LimitShift 30が最初のゴールとするのは、経営者が自らの前提を疑い、「解くべき問い」をゼロから立て直せる状態になるようご支援することだ。
+  </p>
+  <div class="question-flow">
+    <!-- Q1 -->
+    <div class="q-step fade-in">
+      <div class="q-num-col">
+        <span class="q-num">I</span>
+      </div>
+      <div class="q-content">
+        <div class="q-label">問い①</div>
+        <div class="q-main">勝てる土俵を、どう定義するか。</div>
+        <div class="q-arrow">→</div>
+        <p class="q-desc">土俵の定義とは「社会的必然性・経営者の意思決定構造・自社の固有資産」の3つが交差する領域を指す。その交差点を、御社はどう定義しているか。</p>
+      </div>
+    </div>
+    <!-- Q2 -->
+    <div class="q-step fade-in">
+      <div class="q-num-col">
+        <span class="q-num">II</span>
+      </div>
+      <div class="q-content">
+        <div class="q-label">問い②</div>
+        <div class="q-main">その土俵の中で、どの前提を倒置すると新しい市場が生まれるか。</div>
+        <div class="q-arrow">→</div>
+        <p class="q-desc">業界の常識として受け入れてきた前提を意図的に崩したとき、初めて競合が存在しない空間が生まれる。御社の事業仮説は、どの前提の上に立っているか。</p>
+      </div>
+    </div>
+    <!-- Q3 -->
+    <div class="q-step fade-in">
+      <div class="q-num-col">
+        <span class="q-num">III</span>
+      </div>
+      <div class="q-content">
+        <div class="q-label">問い③</div>
+        <div class="q-main">そのアイデアは、3つの尺度に耐えられるか。</div>
+        <div class="q-arrow">→</div>
+        <div class="scales-grid">
+          <div class="scale-card" onclick="this.classList.toggle('open')">
+            <div class="scale-num">①</div>
+            <div class="scale-name">前提倒置性</div>
+            <div class="scale-detail">前提を崩したとき自社だけが有利になる構造があるか。競合が同じことをしても、なぜ御社の方が有利なのか——その非対称性が問われる。</div>
+          </div>
+          <div class="scale-card" onclick="this.classList.toggle('open')">
+            <div class="scale-num">②</div>
+            <div class="scale-name">代替不可性</div>
+            <div class="scale-detail">模倣できない理由が技術を超えたレイヤーにあるか。特許や技術だけでなく、関係性・データ・信頼の蓄積が「真の護城河」になっているか。</div>
+          </div>
+          <div class="scale-card" onclick="this.classList.toggle('open')">
+            <div class="scale-num">③</div>
+            <div class="scale-name">自動拡張性</div>
+            <div class="scale-detail">最初の顧客が次の顧客を呼ぶメカニズムがあるか。単なる拡販計画ではなく、事業の構造そのものに「広がる力」が内包されているか。</div>
+          </div>
+        </div>
+        <p class="q3-closing">①が弱ければ②も③も必然的に崩れる。これが、私たちが繰り返し見てきた構造だ。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S04: 御社に投げたい問い -->
+<section id="s04">
+  <div class="section-kicker fade-in">S04 — THE CATALYST QUESTION</div>
+  <h2 class="section-title fade-in">御社に投げたい問いがある</h2>
+  <p class="s04-preface fade-in">
+    上記の問いのプロセスを、御社に当てはめて考えてみた。答えは出していない。ただ、一つの問いが浮かび上がってきた。
+  </p>
+  <div class="central-question fade-in">
+    <p>
+      立花エレテックが100年かけて構築してきた製造業との信頼関係は<span class="cq-dash">——</span><br>
+      各メーカーが自社クラウドへの囲い込みを加速させ、<br>
+      工場のデータが「工場自身のもの」でなくなりつつある今<span class="cq-dash">——</span><br><br>
+      メーカーには原理的に果たせない役割、<br>
+      すなわち<em>「工場がデータの所有者であり続ける権利の保証人」</em>になれる<br>
+      唯一の根拠ではないだろうか。
+    </p>
+  </div>
+  <div class="evidence-grid fade-in">
+    <div class="evidence-card">
+      <div class="ev-num">EVIDENCE 01</div>
+      <p class="ev-text"><strong>Edgecrossコンソーシアム 2025年1月 活動終了宣言。</strong>「標準化の時代は終わり、各社が自分の庭を耕し始めた」——三菱電機・Siemens・オムロンが自社クラウドへの囲い込みを加速。工場のデータが「工場自身のもの」でなくなる構造が、静かに始まっている。</p>
+    </div>
+    <div class="evidence-card">
+      <div class="ev-num">EVIDENCE 02</div>
+      <p class="ev-text"><strong>布山社長「これまでの延長線上では厳しい」</strong>——しかし「グローバル展開」を次の唯一の勝ち筋と公言しながら、インド法人（2025年1月開業）の対象顧客は「日系・マルチナショナル企業」に限定されている。三菱電機の看板が通じない市場で何を武器にするか、答えは示されていない。</p>
+    </div>
+    <div class="evidence-card">
+      <div class="ev-num">EVIDENCE 03</div>
+      <p class="ev-text">立花エレテックは<strong>「第1回Edgecrossアワード マーケティング部会賞」</strong>受賞（2020年）。7年間、異メーカーのPLC・センサー・ロボットを一元統合するノウハウを積み上げてきた。プラットフォームは消えても、<strong>200名のエンジニアの中にある知識は消えない。</strong></p>
+    </div>
+    <div class="evidence-card">
+      <div class="ev-num">EVIDENCE 04</div>
+      <p class="ev-text">インド進出の日系製造業は<strong>約1,400社・約5,200拠点（2024年時点）</strong>。これらの工場が直面する最大の課題は「日本と同じ品質の生産ラインを、異なるメーカーの設備環境で最速で立ち上げること」——これはまさに立花エレテックが40年かけて磨いた「異種統合技術」の応用文脈である。</p>
+    </div>
+  </div>
+  <p class="s04-invite fade-in">
+    この問いに的外れな点があれば、ご指摘いただきたい。<br>答えを持ってきたのではありません。
+  </p>
+</section>
+
+<!-- S05: イノベーション思考OS -->
+<section id="s05">
+  <div class="section-kicker fade-in">S05 — INNOVATION OS</div>
+  <h2 class="section-title fade-in">イノベーション思考OSを、組織に植え付ける</h2>
+  <div class="mission-block fade-in">
+    <p class="mission-text">
+      不確実性を武器に変える触媒。Proudfoot Japanは、答えを売る組織ではない。<em>「解くべき問いを自力で立て、自力で解ける組織」</em>をつくることが、私たちの本当の提供価値です。
+    </p>
+  </div>
+
+  <!-- OS対比表 -->
+  <div class="os-compare fade-in">
+    <div style="display:grid;grid-template-columns:1fr 1fr;">
+      <div class="os-col kaizen">
+        <div class="os-col-label">カイゼンOS（多くのJTCの現状）</div>
+      </div>
+      <div class="os-col innovation">
+        <div class="os-col-label">イノベーション思考OS</div>
+      </div>
+    </div>
+    <div class="os-row">
+      <div class="os-item k">現在の延長線上で改善を追求する</div>
+      <div class="os-item i"><strong>前提を意図的に崩し、競合のいない土俵を定義できる</strong></div>
+    </div>
+    <div class="os-row">
+      <div class="os-item k">前提を疑わず、与えられた問いを解く</div>
+      <div class="os-item i"><strong>「解くべき問い」を自力で立て、検証プロセスを自走できる</strong></div>
+    </div>
+    <div class="os-row">
+      <div class="os-item k">不確実性をリスクとして排除しようとする</div>
+      <div class="os-item i"><strong>不確実性を、競合との差を生む源泉として使える</strong></div>
+    </div>
+    <div class="os-row">
+      <div class="os-item k">イノベーションの芽がカイゼンの効率で刈り取られる</div>
+      <div class="os-item i"><strong>経営者自身が「動ける問い」を持つ状態になる</strong></div>
+    </div>
+  </div>
+
+  <div class="features-grid fade-in">
+    <div class="feature-card">
+      <div class="feat-num">I</div>
+      <div class="feat-title">問いファースト</div>
+      <p class="feat-text">答えを持ち込む前に、「本当に解くべき問いは何か」をゼロから立て直す。この一歩が、すべての出発点になる。</p>
+    </div>
+    <div class="feature-card">
+      <div class="feat-num">II</div>
+      <div class="feat-title">触媒としての伴走</div>
+      <p class="feat-text">コンサルタントが答えを出すのではない。経営者自身が問いを立て、動けるようになるプロセスを触媒する。</p>
+    </div>
+    <div class="feature-card">
+      <div class="feat-num">III</div>
+      <div class="feat-title">OSの植え付けまで</div>
+      <p class="feat-text">30日間の診断が終わっても、「問いを立てる思考習慣」が組織の中に残る。それが、私たちが目指す本当のゴールだ。</p>
+    </div>
+  </div>
+</section>
+
+<!-- S06: CTA -->
+<section id="s06">
+  <div class="cta-grid">
+    <div class="cta-left fade-in">
+      <div class="section-kicker">S06 — 30-MINUTE DIALOGUE</div>
+      <h2 class="cta-heading">問いが的外れかどうかを、教えてください</h2>
+      <p class="cta-lead">
+        このページに書いたことは、外部公開情報だけから見えたものです。内側からしか見えないことの方が、はるかに多いはずです。「的外れです」という答えも、私たちにとっては大切な対話です。
+      </p>
+      <div class="cta-value">
+        私たちが30分でお伝えしたいのは、答えではありません。御社がまだ解いていない問いがあるとしたら、それはどこか——その問いを、一緒に見つけることが、この対話の目的です。
+      </div>
+    </div>
+    <div class="cta-right fade-in" style="transition-delay:0.15s">
+      <div class="form-title">30分の対話を申し込む</div>
+      <form id="contact-form" action="https://formspree.io/f/mjgalvdz" method="POST">
+        <div class="form-group">
+          <label for="name">お名前 <span style="color:var(--gold)">*</span></label>
+          <input type="text" id="name" name="name" placeholder="松浦 良典" required>
+        </div>
+        <div class="form-group">
+          <label for="company">会社名 <span style="color:var(--gold)">*</span></label>
+          <input type="text" id="company" name="company" placeholder="立花エレテック株式会社" required>
+        </div>
+        <div class="form-group">
+          <label for="position">役職</label>
+          <input type="text" id="position" name="position" placeholder="取締役 執行役員">
+        </div>
+        <div class="form-group">
+          <label for="email">メールアドレス <span style="color:var(--gold)">*</span></label>
+          <input type="email" id="email" name="email" placeholder="name@tachibana-elec.co.jp" required>
+        </div>
+        <div class="form-group">
+          <label for="date1">候補日① <span style="color:var(--gold)">*</span></label>
+          <input type="text" id="date1" name="date1" placeholder="例：5月中旬の平日午前" required>
+        </div>
+        <div class="form-group">
+          <label for="date2">候補日②</label>
+          <input type="text" id="date2" name="date2" placeholder="例：5月下旬終日可">
+        </div>
+        <div class="form-group">
+          <label for="date3">候補日③</label>
+          <input type="text" id="date3" name="date3" placeholder="例：6月上旬">
+        </div>
+        <div class="checkbox-row">
+          <input type="checkbox" id="email-adjust" name="email_adjust" value="yes">
+          <label for="email-adjust">メールで日程を調整する</label>
+        </div>
+        <div class="form-group">
+          <label for="comment">事前コメント（任意）</label>
+          <textarea id="comment" name="comment" placeholder="この問いへのご意見、ご質問など"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">対話を申し込む</button>
+        <p class="form-disclaimer">売り込みではありません。私たちの問いが的外れなら、<br>そう言っていただければ十分です。</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    PROUDFOOT JAPAN — LIMITSHIFT 30
+  </div>
+  <div class="footer-right">
+    本ページは立花エレテック株式会社<br>取締役 執行役員 松浦良典様専用の資料です
+  </div>
+</footer>
+
+<script>
+  // Progress bar
+  const bar = document.getElementById('progress-bar');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    bar.style.width = pct + '%';
+  });
+
+  // Nav scroll
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Fade-in observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Form AJAX
+  const form = document.getElementById('contact-form');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('.submit-btn');
+    btn.textContent = '送信中...';
+    btn.disabled = true;
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        document.getElementById('success-overlay').classList.add('show');
+        form.reset();
+      } else {
+        alert('送信に失敗しました。時間をおいて再度お試しください。');
+      }
+    } catch(err) {
+      alert('通信エラーが発生しました。');
+    } finally {
+      btn.textContent = '対話を申し込む';
+      btn.disabled = false;
+    }
+  });
+
+  // Hero instant visible
+  document.querySelectorAll('#hero .fade-in').forEach(el => {
+    setTimeout(() => el.classList.add('visible'), 100);
+  });
+</script>
+</body>
+</html>
